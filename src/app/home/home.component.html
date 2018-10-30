@@ -1,0 +1,29 @@
+<mat-grid-list cols="1" rowHeight="250px">
+  <mat-grid-tile>
+    <img [src]="'src/app/images/' + imageValue" height="100%" width="100%">
+  </mat-grid-tile>
+</mat-grid-list>
+<mat-grid-list cols="3" rowHeight="380px">
+  <mat-grid-tile *ngFor="let data of randomData">
+    <mat-card class="example-card">
+      <div>
+      <img mat-card-image (click)="visit(data.id)" [src]="imageUrl+'/images/' + data.product_images" [alt]="data.product_images">
+      </div>
+      <mat-card-content>
+        <p class="display-enter">
+          {{data.product_name}}
+        </p>
+        <p>Rs.
+          {{data.product_price}}
+        </p>
+        <p>Category :
+          {{data.tblcategory.category_name}}
+        </p>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" type="button" (click)="visit(data.id)" class="center-button">Visit to know more</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

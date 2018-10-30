@@ -1,0 +1,22 @@
+<div>
+  <div>
+    <h2 mat-dialog-title>Brand Dialog
+      <!--<span class="spacer"></span>-->
+      <button mat-dialog-close style="float: right;" mat-mini-fab type="button"><mat-icon>close</mat-icon></button>
+    </h2>
+  </div>
+
+  <form [formGroup]="brandForm" (ngSubmit)="save()">
+    <mat-dialog-content>
+      <mat-form-field>
+        <input matInput formControlName="name" placeholder="Enter the Brand Name">
+        <mat-error *ngIf="brandForm.get('name').errors">Please enter a valid Brand Name</mat-error>
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+
+      <button mat-stroked-button type="submit" [disabled]="!brandForm.valid" color="primary">Save</button>
+      <button mat-stroked-button type="button" (click)="clear()">Clear</button>
+    </mat-dialog-actions>
+  </form>
+</div>
